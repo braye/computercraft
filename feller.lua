@@ -28,11 +28,16 @@ while true do
 			turtle.down()
 			isBlockBelow, _ = turtle.inspectDown()
 		end
+	elseif hasBlock then
+		-- avoid saplings
+		turtle.up()
+		turtle.forward()
+		turtle.forward()
+		turtle.down()
 	else
 		turtle.forward()
 		local isBlockBelow, _ = turtle.inspectDown()
 		if not isBlockBelow then
-			turtle.back()
 			if row % 2 ~= 0 then turtle.turnLeft() else turtle.turnRight() end
 			turtle.forward()
 			turtle.forward()
