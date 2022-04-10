@@ -1,5 +1,5 @@
-local row = 1
-local rowCount = 6
+row = 1
+rowCount = 6
 
 turtle.refuel()
 
@@ -33,11 +33,11 @@ while true do
 		local isBlockBelow, _ = turtle.inspectDown()
 		if not isBlockBelow then
 			turtle.back()
-			if row % 2 == 0 then turtle.turnLeft() else turtle.turnRight() end
+			if row % 2 ~= 0 then turtle.turnLeft() else turtle.turnRight() end
 			turtle.forward()
 			turtle.forward()
 			turtle.forward()
-			if row % 2 == 0 then turtle.turnLeft() else turtle.turnRight() end
+			if row % 2 ~= 0 then turtle.turnLeft() else turtle.turnRight() end
 			row = row + 1
 		end
 	end
