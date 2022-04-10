@@ -34,12 +34,39 @@ while true do
 		if isAbove and aboveData.tags["minecraft:leaves"] then
 			turtle.digUp()
 		elseif isAbove then
-			print("Non-leaf block above! Exiting..")
+			print("Non-leaf block! Exiting..")
 			os.shutdown()
 		end
 		turtle.up()
+
+		local isForward, forwardData = turtle.inspect()
+		if isForward and forwardData.tags["minecraft:leaves"] then
+			turtle.dig()
+		elseif isForward then
+			print("Non-leaf block! Exiting..")
+			os.shutdown()
+		end
+
 		turtle.forward()
+
+		isForward, forwardData = turtle.inspect()
+		if isForward and forwardData.tags["minecraft:leaves"] then
+			turtle.dig()
+		elseif isForward then
+			print("Non-leaf block above! Exiting..")
+			os.shutdown()
+		end
+
 		turtle.forward()
+
+		local isDown, downData = turtle.inspectDown()
+		if isDown and downData.tags["minecraft:leaves"] then
+			turtle.digDown()
+		elseif isForward then
+			print("Non-leaf block! Exiting..")
+			os.shutdown()
+		end
+
 		turtle.down()
 	else
 		turtle.forward()
