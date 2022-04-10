@@ -33,9 +33,9 @@ while true do
 		local isAbove, aboveData = turtle.inspectUp()
 		if isAbove and aboveData.tags["minecraft:leaves"] then
 			turtle.digUp()
-		else
+		elseif isAbove then
 			print("Non-leaf block above! Exiting..")
-			exit()
+			os.shutdown()
 		end
 		turtle.up()
 		turtle.forward()
