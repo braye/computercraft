@@ -37,6 +37,7 @@ while true do
 			turtle.forward()
 			turtle.forward()
 			turtle.forward()
+			turtle.forward()
 			if row % 2 ~= 0 then turtle.turnLeft() else turtle.turnRight() end
 			row = row + 1
 		end
