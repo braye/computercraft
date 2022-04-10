@@ -30,6 +30,13 @@ while true do
 		end
 	elseif hasBlock then
 		-- avoid saplings
+		local isAbove, aboveData = turtle.inspectUp()
+		if isAbove and aboveData.tags["minecraft:leaves"] then
+			turtle.digUp()
+		else
+			print("Non-leaf block above! Exiting..")
+			exit()
+		end
 		turtle.up()
 		turtle.forward()
 		turtle.forward()
